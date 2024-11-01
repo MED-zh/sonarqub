@@ -29,8 +29,10 @@ jobs:
 
       - name: Run SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v3
+        with:
+         args: "-X"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
          
-          INPUT_ARGS: '-X'  # Add this line to enable debug logging
+         
