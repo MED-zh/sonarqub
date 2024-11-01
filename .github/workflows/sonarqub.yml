@@ -1,4 +1,4 @@
-name: SonarQube Scan
+name: SonarQube Scan with Node.js
 
 on:
   push:
@@ -9,21 +9,27 @@ on:
       - main
 
 jobs:
-  sonar-scanning:
+  sonarqube:
+    name: SonarQube Scan
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout code
+      - name: Checkout source code
         uses: actions/checkout@v2
-
-      - name: Set up JDK (if using Java)
-        uses: actions/setup-java@v2
         with:
-          java-version: '17.0.12'  # Adjust as necessary
+          fetch-depth: 0  # Fetch all history for all branches and tags
 
-      - name: SonarQube Scan
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22.11.0'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v3
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: http://localhost:9000
-          SONAR_PROJECT_VERSION: 1.0
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}  # Make sure this secret is defined in your repository
+       
