@@ -9,17 +9,21 @@ on:
       - main
 
 jobs:
-  sonarQubeScan:
+  sonar-scanning:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Run SonarQube Scan with Debug Logging
-        uses: sonarsource/sonarqube-scan-action@v3
+      - name: Set up JDK (if using Java)
+        uses: actions/setup-java@v2
         with:
-          args: "-X"
+          java-version: '17.0.12'  # Adjust as necessary
+
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v3
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: http://localhost:9000
+          SONAR_PROJECT_VERSION: 1.0
