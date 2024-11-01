@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+      - master
+      - develop
+      - 'releases/**'
   pull_request:
       types: [opened, synchronize, reopened]
 
@@ -19,4 +22,4 @@ jobs:
       uses: sonarsource/sonarqube-scan-action@v3 # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
