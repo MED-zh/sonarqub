@@ -1,7 +1,5 @@
 name: SonarQube Analysis
 
-
-
 on:
   push:
     branches:
@@ -26,8 +24,8 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          sonar-scanner \
-            -Dsonar.projectKey=Tp_sonar \
-            -Dsonar.sources=. \
-            -Dsonar.host.url=http://localhost:9000 \
-            -Dsonar.login=$SONAR_TOKEN
+          "C:\Users\Hp Elitebook\sonar-scanner-4.8.0.2856-windows\binsonar-scanner.bat" ^
+            -D"sonar.projectKey=Tp_sonar" ^
+            -D"sonar.sources=." ^
+            -D"sonar.host.url=http://localhost:9000" ^
+            -D"sonar.login=$env:SONAR_TOKEN"
