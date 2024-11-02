@@ -10,9 +10,7 @@ function changeColor() {
     const messageDisplay = document.getElementById("messageDisplay");
     const colors = ["#f9c74f", "#90be6d", "#f94144", "#577590", "#43aa8b"];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    messageDisplay.style.backgroundColor = randomColor;
-    messageDisplay.innerText = "Couleur de fond modifiée!";
-}
+
 
 // Function to reset the message display
 function reset() {
@@ -22,8 +20,8 @@ function reset() {
     messageDisplay.style.color = "black";
 }
 function add(a, b) {
-    return a + b
-}
+
+
 
 console.log(add(5, 10))
 
