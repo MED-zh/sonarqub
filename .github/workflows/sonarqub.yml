@@ -22,12 +22,8 @@ jobs:
 
       - name: Run SonarQube Scanner
         env:
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          & "C:\Users\Hp Elitebook\sonar-scanner-4.8.0.2856-windows\bin\sonar-scanner.bat" 
-              -D"sonar.projectKey=Tp_sonar" 
-              -D"sonar.sources=." 
-              -D"sonar.host.url=http://localhost:9000" 
-              -D"sonar.login=$env:SONAR_TOKEN" 
-              -X
+            & "C:\Users\Hp Elitebook\sonar-scanner-4.8.0.2856-windows\bin\sonar-scanner.bat" -D"sonar.projectKey=Tp_sonar" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=$env:SONAR_TOKEN" -X
+
 
