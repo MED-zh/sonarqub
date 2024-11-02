@@ -21,3 +21,9 @@ function reset() {
     messageDisplay.style.backgroundColor = "#fff";
     messageDisplay.style.color = "black";
 }
+function add(a, b) {
+    return a + b
+}
+
+console.log(add(5, 10))
+
